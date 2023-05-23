@@ -93,6 +93,42 @@
           }
         }
       }
+    },
+    "testing-angular-app": {
+      "projectType": "library",
+      "root": "projects/testing-angular-app",
+      "sourceRoot": "projects/testing-angular-app/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/testing-angular-app/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/testing-angular-app/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/testing-angular-app/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/testing-angular-app/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": "ad91e4fa-eabf-4cf3-b320-e478c00a94d8"
   }
 }
